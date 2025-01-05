@@ -1,0 +1,26 @@
+.detailPage {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .fullImage {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .downloadButton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  .downloadButton:hover {
+    background-color: #0056b3;
+  }
+  
