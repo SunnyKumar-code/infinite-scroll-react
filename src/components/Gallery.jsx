@@ -18,7 +18,7 @@ function reducer(state, action) {
       return {
         ...state,
         images: [...state.images, ...action.payload],
-        hasMore: action.payload.length === 20, // If fewer than 20 images are returned, stop fetching
+        hasMore: action.payload.length === 20, 
       };
     case "SET_QUERY":
       return { ...state, query: action.payload, images: [], page: 1, hasMore: true };
@@ -32,7 +32,7 @@ function reducer(state, action) {
 const Gallery = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // Fetch images from Unsplash API
+  
   const fetchImages = async () => {
     if (state.isLoading || !state.hasMore) return;
 
@@ -46,7 +46,7 @@ const Gallery = () => {
           per_page: 20,
         },
         headers: {
-          Authorization: "Client-ID puXbNMC-XSqzxWvpIeFJrcK4tGd7ZGLc3cBCyoyI6qs", // Use your API key
+          Authorization: "Client-ID puXbNMC-XSqzxWvpIeFJrcK4tGd7ZGLc3cBCyoyI6qs", 
         },
       });
 
@@ -58,7 +58,7 @@ const Gallery = () => {
     dispatch({ type: "SET_LOADING", payload: false });
   };
 
-  // Infinite scroll logic
+
   const handleScroll = () => {
     if (
       Math.ceil(window.scrollY + window.innerHeight) >=
@@ -73,12 +73,12 @@ const Gallery = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [state.page]);
 
-  // Fetch images whenever the page or query state changes
+ 
   useEffect(() => {
     fetchImages();
   }, [state.page, state.query]);
 
-  // Handle search
+
   const handleSearch = (e) => {
     e.preventDefault();
     const query = e.target.elements.query.value.trim();
